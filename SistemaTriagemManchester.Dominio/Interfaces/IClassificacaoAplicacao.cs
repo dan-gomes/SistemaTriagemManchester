@@ -1,7 +1,9 @@
-﻿namespace SistemaTriagemManchester.Dominio
+﻿using SistemaTriagemManchester.Dominio.Enums;
+
+namespace SistemaTriagemManchester.Dominio
 {
     public interface IClassificacaoAplicacao
     {
-        string CompararClassificacoes(int[] sintomas);
+        Grau CompararClassificacoes(int[] sintomas);
     }
 }

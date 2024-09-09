@@ -1,5 +1,6 @@
 ﻿using SistemaTriagemManchester.Aplicacao;
 using SistemaTriagemManchester.Aplicacao.Interfaces;
+using SistemaTriagemManchester.Dominio.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,13 @@ namespace SistemaTriagemManchester.UI.Uc
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
+            var grau = _triagemAplicacao.ClassificarPaciente(materialMultiLineTextBoxSintomas.Text);
+
+            DialogResult resultado = MessageBox.Show("Deseja utilizar a classificação de atendimento sistémica?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
             _triagemAplicacao.Gravar(new Dominio.Modelos.TriagemModelo
             {
                 CPF = materialMultiLineTextBoxPaciente.Text,
@@ -58,8 +66,24 @@ namespace SistemaTriagemManchester.UI.Uc
                 HistoricoClinico = materialMultiLineTextBoxClinico.Text,
                 Sinais = materialMultiLineTextBoxSinais.Text,
                 Sintomas = materialMultiLineTextBoxSintomas.Text,
-                Temperatura = materialTextBoxT.Text
+                Temperatura = materialTextBoxT.Text,
+                Classificacao = resultado == DialogResult.Yes ? grau : (Grau)materialComboBoxUrgencia.SelectedIndex
             }, new Dominio.PacienteModelo { DataTriagem = DateTime.Parse(textBoxChegada.Text), Status = "Triagem" });
+        }       
+
+        private void materialLabel19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

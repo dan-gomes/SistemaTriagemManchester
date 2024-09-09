@@ -2,6 +2,7 @@
 using SistemaTriagemManchester.Aplicacao.Interfaces;
 using SistemaTriagemManchester.Dominio;
 using SistemaTriagemManchester.Dominio.Entidades.MachineLearning;
+using SistemaTriagemManchester.Dominio.Enums;
 using SistemaTriagemManchester.Dominio.Interfaces.Repositorios;
 using SistemaTriagemManchester.Dominio.Modelos;
 
@@ -22,10 +23,13 @@ namespace SistemaTriagemManchester.Aplicacao
             _pacienteAplicacao = pacienteAplicacao;
         }
 
+        public Grau ClassificarPaciente(string sintomas)
+        {
+            return _classificacaoAplicacao.CompararClassificacoes(Sintomas(sintomas));
+        }
+
         public bool Gravar(TriagemModelo triagemModelo, PacienteModelo pacienteModelo)
         {
-            var grau = _classificacaoAplicacao.CompararClassificacoes(Sintomas(triagemModelo));
-            triagemModelo.Classificacao = grau;
 
             var pessoa = _pessoaAplicacao.Obter(new PessoaModelo { CPF = triagemModelo.CPF });
 
@@ -44,11 +48,11 @@ namespace SistemaTriagemManchester.Aplicacao
             return false;
         }
 
-        public int[] Sintomas(TriagemModelo sintoma)
+        public int[] Sintomas(string sintomasPaciente)
         {
             var sintomasList = new List<int>();
 
-            var sintomas = sintoma.Sintomas.Split(';').ToArray();
+            var sintomas = sintomasPaciente.Split(';').ToArray();
 
             // Verifica a presença de cada sintoma na string e adiciona 1 ou 0 na lista
             sintomasList.Add(sintomas.Contains("Febre") ? 1 : 0);

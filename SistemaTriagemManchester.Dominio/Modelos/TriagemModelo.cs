@@ -1,4 +1,6 @@
-﻿namespace SistemaTriagemManchester.Dominio.Modelos
+﻿using SistemaTriagemManchester.Dominio.Enums;
+
+namespace SistemaTriagemManchester.Dominio.Modelos
 {
     public class TriagemModelo
     {
@@ -17,7 +19,7 @@
         public string FrequenciaCardiaca { get; set; }
         public string SaturacaoOxigenio { get; set; }
         public string Glicemia { get; set; }
-        public string Classificacao { get; set; }
+        public Grau Classificacao { get; set; }
         public string CPF { get; set; }
         public string Sequencial { get; set; }
     }

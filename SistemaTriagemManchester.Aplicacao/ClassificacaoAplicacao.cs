@@ -1,5 +1,6 @@
 ﻿using Python.Runtime;
 using SistemaTriagemManchester.Dominio;
+using SistemaTriagemManchester.Dominio.Enums;
 using SistemaTriagemManchester.Dominio.Interfaces.Repositorios;
 
 namespace SistemaTriagemManchester.Aplicacao
@@ -164,7 +165,7 @@ namespace SistemaTriagemManchester.Aplicacao
         }
 
         // Método para comparar os resultados dos três algoritmos e retornar a classificação final
-        public string CompararClassificacoes(int[] sintomas)
+        public Grau CompararClassificacoes(int[] sintomas)
         {
             double resultadoRF = ClassificarComRandomForest(sintomas);
             double resultadoKNN = ClassificarComKNN(sintomas);
@@ -172,7 +173,18 @@ namespace SistemaTriagemManchester.Aplicacao
 
             // Comparar os resultados e decidir a classificação final (média simples)
             double media = (resultadoRF + resultadoKNN + resultadoLR) / 3;
-            return media > 0.5 ? "Alta Urgência" : "Baixa Urgência";
+
+            if (media >= 0.9)            
+                return Grau.Emergencia;            
+            else if (media >= 0.7)            
+                return Grau.MuitoUrgente;            
+            else if (media >= 0.5)            
+                return Grau.Urgente;            
+            else if (media >= 0.3)
+                return Grau.PoucoUrgente;
+
+            return Grau.NaoUrgente;
+            
         }
     }
 }

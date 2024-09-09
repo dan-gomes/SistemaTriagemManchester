@@ -94,6 +94,8 @@
             materialButton2 = new MaterialSkin.Controls.MaterialButton();
             materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBoxUrgencia = new MaterialSkin.Controls.MaterialComboBox();
             materialCard1.SuspendLayout();
             materialCard2.SuspendLayout();
             materialCard3.SuspendLayout();
@@ -103,6 +105,8 @@
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard1.Controls.Add(materialComboBoxUrgencia);
+            materialCard1.Controls.Add(materialLabel19);
             materialCard1.Controls.Add(textBoxChegada);
             materialCard1.Controls.Add(materialMultiLineTextBoxSequencial);
             materialCard1.Controls.Add(materialLabelSequencial);
@@ -116,7 +120,7 @@
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(609, 72);
+            materialCard1.Size = new Size(630, 84);
             materialCard1.TabIndex = 0;
             // 
             // textBoxChegada
@@ -126,10 +130,10 @@
             textBoxChegada.Enabled = false;
             textBoxChegada.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBoxChegada.ForeColor = Color.Black;
-            textBoxChegada.Location = new Point(21, 28);
+            textBoxChegada.Location = new Point(21, 29);
             textBoxChegada.Multiline = true;
             textBoxChegada.Name = "textBoxChegada";
-            textBoxChegada.Size = new Size(171, 37);
+            textBoxChegada.Size = new Size(171, 48);
             textBoxChegada.TabIndex = 7;
             textBoxChegada.TextAlign = HorizontalAlignment.Center;
             // 
@@ -151,7 +155,7 @@
             materialMultiLineTextBoxSequencial.SelectionLength = 0;
             materialMultiLineTextBoxSequencial.SelectionStart = 0;
             materialMultiLineTextBoxSequencial.ShortcutsEnabled = true;
-            materialMultiLineTextBoxSequencial.Size = new Size(132, 38);
+            materialMultiLineTextBoxSequencial.Size = new Size(132, 49);
             materialMultiLineTextBoxSequencial.TabIndex = 6;
             materialMultiLineTextBoxSequencial.TabStop = false;
             materialMultiLineTextBoxSequencial.TextAlign = HorizontalAlignment.Left;
@@ -187,7 +191,7 @@
             materialMultiLineTextBoxPaciente.SelectionLength = 0;
             materialMultiLineTextBoxPaciente.SelectionStart = 0;
             materialMultiLineTextBoxPaciente.ShortcutsEnabled = true;
-            materialMultiLineTextBoxPaciente.Size = new Size(242, 37);
+            materialMultiLineTextBoxPaciente.Size = new Size(174, 48);
             materialMultiLineTextBoxPaciente.TabIndex = 4;
             materialMultiLineTextBoxPaciente.TabStop = false;
             materialMultiLineTextBoxPaciente.TextAlign = HorizontalAlignment.Left;
@@ -228,7 +232,7 @@
             materialCard2.Controls.Add(materialDivider1);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(15, 123);
+            materialCard2.Location = new Point(15, 134);
             materialCard2.Margin = new Padding(14);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
@@ -1051,24 +1055,62 @@
             materialLabel17.AutoSize = true;
             materialLabel17.Depth = 0;
             materialLabel17.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel17.Location = new Point(225, 395);
+            materialLabel17.Location = new Point(225, 383);
             materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel17.Name = "materialLabel17";
             materialLabel17.Size = new Size(120, 19);
             materialLabel17.TabIndex = 8;
             materialLabel17.Text = "Histórico Médico";
+            materialLabel17.Click += materialLabel17_Click;
             // 
             // materialLabel18
             // 
             materialLabel18.AutoSize = true;
             materialLabel18.Depth = 0;
             materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel18.Location = new Point(225, 100);
+            materialLabel18.Location = new Point(225, 107);
             materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel18.Name = "materialLabel18";
             materialLabel18.Size = new Size(105, 19);
             materialLabel18.TabIndex = 9;
             materialLabel18.Text = "Quadro Clínico";
+            // 
+            // materialLabel19
+            // 
+            materialLabel19.AutoSize = true;
+            materialLabel19.Depth = 0;
+            materialLabel19.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel19.Location = new Point(547, 7);
+            materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel19.Name = "materialLabel19";
+            materialLabel19.Size = new Size(63, 19);
+            materialLabel19.TabIndex = 9;
+            materialLabel19.Text = "Urgência";
+            materialLabel19.Click += materialLabel19_Click;
+            // 
+            // materialComboBoxUrgencia
+            // 
+            materialComboBoxUrgencia.AutoResize = false;
+            materialComboBoxUrgencia.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBoxUrgencia.Depth = 0;
+            materialComboBoxUrgencia.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBoxUrgencia.DropDownHeight = 174;
+            materialComboBoxUrgencia.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBoxUrgencia.DropDownWidth = 121;
+            materialComboBoxUrgencia.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBoxUrgencia.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBoxUrgencia.FormattingEnabled = true;
+            materialComboBoxUrgencia.IntegralHeight = false;
+            materialComboBoxUrgencia.ItemHeight = 43;
+            materialComboBoxUrgencia.Items.AddRange(new object[] { "EMG", "MU", "URG", "PU", "NU" });
+            materialComboBoxUrgencia.Location = new Point(547, 29);
+            materialComboBoxUrgencia.MaxDropDownItems = 4;
+            materialComboBoxUrgencia.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBoxUrgencia.Name = "materialComboBoxUrgencia";
+            materialComboBoxUrgencia.Size = new Size(73, 49);
+            materialComboBoxUrgencia.StartIndex = 0;
+            materialComboBoxUrgencia.TabIndex = 10;
+            materialComboBoxUrgencia.SelectedIndexChanged += materialComboBox1_SelectedIndexChanged;
             // 
             // UcTriagemPaciente
             // 
@@ -1166,5 +1208,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabelSequencial;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 materialMultiLineTextBoxPaciente;
         private TextBox textBoxChegada;
+        private MaterialSkin.Controls.MaterialLabel materialLabel19;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBoxUrgencia;
     }
 }
