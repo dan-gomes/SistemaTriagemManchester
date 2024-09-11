@@ -10,5 +10,6 @@ namespace SistemaTriagemManchester.Aplicacao.Interfaces
         bool GravaPessoaCompleta(PessoaModelo pessoaModelo, EnderecoModelo enderecoModelo, List<DoencaPreExistenteModelo> doencaPreExistenteModelo);
         List<PessoaDto> ObterTodos();
         PessoaDto Obter(PessoaModelo pessoaModelo);
+        List<DoencaPreExistenteModelo> ObterDoencasPreExistentesPorDocumentoPessoa(string documento);
     }
 }

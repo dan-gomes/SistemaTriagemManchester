@@ -6,7 +6,7 @@ namespace SistemaTriagemManchester.Aplicacao.Interfaces
 {
     public interface ITriagemAplicacao
     {
-        Grau ClassificarPaciente(string sintomas);
+        Grau ClassificarPaciente(string sintomas, string documento);
         bool Gravar(TriagemModelo triagemModelo, PacienteModelo pacienteModelo);
     }
 }

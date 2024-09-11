@@ -24,6 +24,8 @@ namespace SistemaTriagemManchester.Dominio.Modelos.Dto
         public string Numero { get; set; }
         public DateTime DataCadastroEndereco { get; set; }
 
+        public virtual ICollection<DoencaPreExistenteModelo> DoencasPreExistentes { get; set; }
+
 
         public static explicit operator PessoaDto(Pessoa pessoa)
         {
@@ -45,7 +47,8 @@ namespace SistemaTriagemManchester.Dominio.Modelos.Dto
                 Cidade = pessoa.Endereco?.Cidade,
                 Estado = pessoa.Endereco?.Estado,
                 Numero = pessoa.Endereco?.Numero,
-                DataCadastroEndereco = pessoa.Endereco == null ? DateTime.MinValue : pessoa.Endereco.DataCadastro
+                DataCadastroEndereco = pessoa.Endereco == null ? DateTime.MinValue : pessoa.Endereco.DataCadastro,
+                DoencasPreExistentes = pessoa.PessoasDoencasPreexistentes.Select(a=> new DoencaPreExistenteModelo { Nome = a.DoencaPreexistente.Nome }).ToList()
             };
         }
     }

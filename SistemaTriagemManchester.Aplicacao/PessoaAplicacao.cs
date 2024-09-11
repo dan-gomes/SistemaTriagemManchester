@@ -71,5 +71,10 @@ namespace SistemaTriagemManchester.Aplicacao
         {
             return _pessoaRepositorio.ObterTodos();
         }
+
+        public List<DoencaPreExistenteModelo> ObterDoencasPreExistentesPorDocumentoPessoa(string documento)
+        {
+            return _pessoaRepositorio.ObterPorDocumento(documento).DoencasPreExistentes.ToList();
+        }
     }
 }

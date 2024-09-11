@@ -43,7 +43,7 @@ namespace SistemaTriagemManchester.UI.Uc
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            var grau = _triagemAplicacao.ClassificarPaciente(materialMultiLineTextBoxSintomas.Text);
+            var grau = _triagemAplicacao.ClassificarPaciente(materialMultiLineTextBoxSintomas.Text, materialMultiLineTextBoxPaciente.Text);
 
             DialogResult resultado = MessageBox.Show("Deseja utilizar a classificação de atendimento sistémica?",
                                                      "Confirmação",

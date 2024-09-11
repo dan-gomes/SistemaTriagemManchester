@@ -37,6 +37,11 @@ namespace SistemaTriagemManchester.Infra.Repositorios
             return (PessoaDto)query.FirstOrDefault();
         }
 
+        public PessoaDto ObterPorDocumento(string documento)
+        {
+            return (PessoaDto)Set.Include(a=>a.PessoasDoencasPreexistentes).ThenInclude(a=>a.DoencaPreexistente).FirstOrDefault(a => a.CPF == documento);
+        }
+
         public List<PessoaDto> ObterTodos()
         {
             return Set.Include(a => a.Endereco).ToList().Select(a => (PessoaDto)a).ToList();

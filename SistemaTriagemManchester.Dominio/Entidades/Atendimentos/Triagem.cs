@@ -1,4 +1,5 @@
 ﻿using SistemaTriagemManchester.Dominio.Entidades;
+using SistemaTriagemManchester.Dominio.Enums;
 using SistemaTriagemManchester.Dominio.Modelos;
 
 namespace SistemaTriagemManchester.Dominio
@@ -20,7 +21,7 @@ namespace SistemaTriagemManchester.Dominio
         public string FrequenciaCardiaca { get; set; }
         public string SaturacaoOxigenio { get; set; }
         public string Glicemia { get; set; }
-        public string Classificacao { get; set; }
+        public Grau Classificacao { get; set; }
 
         // Propriedade de navegação
         public Paciente Paciente { get; set; }

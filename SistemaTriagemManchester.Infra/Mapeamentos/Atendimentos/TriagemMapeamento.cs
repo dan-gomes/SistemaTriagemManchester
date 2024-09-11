@@ -59,7 +59,7 @@ namespace SistemaTriagemManchester.Infra.Mapeamentos.Atendimentos
                    .HasColumnType("varchar(20)");
 
             builder.Property(t => t.Classificacao).HasColumnName("classificacao")
-                   .HasColumnType("varchar(20)");
+                   .HasColumnType("int2");
 
             builder.HasOne(t => t.Paciente)
                    .WithMany(p => p.Triagens)

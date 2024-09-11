@@ -8,5 +8,6 @@ namespace SistemaTriagemManchester.Dominio.Interfaces.Repositorios
     {
         PessoaDto ObterPorDadosIdentificacao(PessoaModelo pessoaModelo);
         List<PessoaDto> ObterTodos();
+        PessoaDto ObterPorDocumento(string documento);
     }
 }

@@ -23,9 +23,11 @@ namespace SistemaTriagemManchester.Aplicacao
             _pacienteAplicacao = pacienteAplicacao;
         }
 
-        public Grau ClassificarPaciente(string sintomas)
+        public Grau ClassificarPaciente(string sintomas, string documento)
         {
-            return _classificacaoAplicacao.CompararClassificacoes(Sintomas(sintomas));
+            var doencasPreExistentes = _pessoaAplicacao.ObterDoencasPreExistentesPorDocumentoPessoa(documento);
+            var resultado =DoencasPreExistente(doencasPreExistentes);
+            return _classificacaoAplicacao.CompararClassificacoes(Sintomas(sintomas), DoencasPreExistente(doencasPreExistentes));
         }
 
         public bool Gravar(TriagemModelo triagemModelo, PacienteModelo pacienteModelo)
@@ -65,6 +67,22 @@ namespace SistemaTriagemManchester.Aplicacao
             sintomasList.Add(sintomas.Contains("Tremores") ? 1 : 0);
             sintomasList.Add(sintomas.Contains("ConfusaoMental") ? 1 : 0);
             sintomasList.Add(sintomas.Contains("SuorExcessivo") ? 1 : 0);
+
+            return sintomasList.ToArray();
+
+        }
+
+        public int[] DoencasPreExistente(List<DoencaPreExistenteModelo> doencaPreExistenteModelos)
+        {
+            var sintomasList = new List<int>
+            {
+                // Verifica a presença de cada sintoma na string e adiciona 1 ou 0 na lista
+                doencaPreExistenteModelos.Any(a => a.Nome == "Diabetes") ? 1 : 0,
+                doencaPreExistenteModelos.Any(a => a.Nome == "Hipertensão ") ? 1 : 0,
+                doencaPreExistenteModelos.Any(a => a.Nome == "Asma") ? 1 : 0,
+                doencaPreExistenteModelos.Any(a => a.Nome == "Cardiopatia ") ? 1 : 0,
+                doencaPreExistenteModelos.Any(a => a.Nome == "Obesidade ") ? 1 : 0
+            };
 
             return sintomasList.ToArray();
         }

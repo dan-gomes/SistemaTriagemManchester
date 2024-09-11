@@ -4,6 +4,6 @@ namespace SistemaTriagemManchester.Dominio
 {
     public interface IClassificacaoAplicacao
     {
-        Grau CompararClassificacoes(int[] sintomas);
+        Grau CompararClassificacoes(int[] sintomas, int[] doencasPreExistentes);
     }
 }
