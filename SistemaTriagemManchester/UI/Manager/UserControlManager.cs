@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SistemaTriagemManchester.Apresentacao.UI.Interfaces;
+using SistemaTriagemManchester.Apresentacao.UI.Uc.Acolhimento;
 using SistemaTriagemManchester.Apresentacao.UI.Uc.Configuracoes;
 using SistemaTriagemManchester.UI.Uc;
 using SistemaTriagemManchester.UI.Uc.Atendimento;
@@ -63,6 +64,8 @@ namespace SistemaTriagemManchester.Apresentacao.UI.Manager
                     return _serviceProvider.GetRequiredService<UcTriagemPaciente>();
                 case UserControlEnum.UcConfiguracao:
                     return _serviceProvider.GetRequiredService<UcConfiguracao>();
+                case UserControlEnum.UcAcolhimento:
+                    return _serviceProvider.GetRequiredService<UcAcolhimento>();
                 default:
                     throw new ArgumentException("Chave inválida para UserControl", nameof(nome));
             }

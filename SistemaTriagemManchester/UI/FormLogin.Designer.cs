@@ -160,7 +160,7 @@
             usuario.AnimateReadOnly = false;
             usuario.BorderStyle = BorderStyle.None;
             usuario.Depth = 0;
-            usuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            usuario.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             usuario.LeadingIcon = null;
             usuario.Location = new Point(35, 163);
             usuario.MaxLength = 50;

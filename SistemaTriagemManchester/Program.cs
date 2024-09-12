@@ -6,6 +6,7 @@ using SistemaTriagemManchester.Aplicacao.Interfaces;
 using SistemaTriagemManchester.Apresentacao.UI;
 using SistemaTriagemManchester.Apresentacao.UI.Interfaces;
 using SistemaTriagemManchester.Apresentacao.UI.Manager;
+using SistemaTriagemManchester.Apresentacao.UI.Uc.Acolhimento;
 using SistemaTriagemManchester.Apresentacao.UI.Uc.Atendimento;
 using SistemaTriagemManchester.Apresentacao.UI.Uc.Configuracoes;
 using SistemaTriagemManchester.Apresentacao.UI.Uc.Historico;
@@ -42,10 +43,19 @@ namespace SistemaTriagemManchester
             {
                 var services = scope.ServiceProvider;
 
-                // Recuperar a instância principal do formulário e iniciar a aplicação
                 var loginForm = services.GetRequiredService<FormLogin>();
                 var mainForm = services.GetRequiredService<FormPrincipal>();
-                Application.Run(mainForm);
+
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Se o login for bem-sucedido, abre o FormPrincipal
+                    Application.Run(mainForm);
+                }
+                else
+                {
+                    // Se o login for cancelado ou falhar, fecha a aplicação
+                    Application.Exit();
+                }
             }
         }
 
@@ -108,6 +118,7 @@ namespace SistemaTriagemManchester
         private static void AddServicesTriagem(IServiceCollection services)
         {
             services.AddTransient<UcTriagemPaciente>();
+            services.AddTransient<UcAcolhimento>();
         }
 
         private static void AddServicesDashboard(IServiceCollection services)

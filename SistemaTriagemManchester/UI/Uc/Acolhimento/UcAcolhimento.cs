@@ -10,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaTriagemManchester.UI.Uc
+namespace SistemaTriagemManchester.Apresentacao.UI.Uc.Acolhimento
 {
-    public partial class UcHistorico : UserControl
+    public partial class UcAcolhimento : UserControl
     {
         private readonly INavigationManager _navigationManager;
-        public UcHistorico(INavigationManager navigationManager)
+        public UcAcolhimento(INavigationManager navigationManager)
         {
             _navigationManager = navigationManager;
             InitializeComponent();
@@ -27,23 +27,22 @@ namespace SistemaTriagemManchester.UI.Uc
             base.Refresh();
             panelButtons.Visible = true;
         }
-        
-        private void BtnTriagens_Click(object sender, EventArgs e)
+
+        private void UcCadastro_Load(object sender, EventArgs e)
         {
-            panelButtons.Visible = false;
-            _navigationManager.NavigateTo(UserControlEnum.UcHistoricoTriagens, panelHistorico);
+
         }
 
-        private void BtnExames_Click(object sender, EventArgs e)
+        private void materialButtonTriagem_Click(object sender, EventArgs e)
         {
             panelButtons.Visible = false;
-            _navigationManager.NavigateTo(UserControlEnum.UcHistoricoExames, panelHistorico);
+            _navigationManager.NavigateTo(UserControlEnum.UcTriagemPaciente, panelAcolhimento);
         }
 
-        private void BtnConsultas_Click(object sender, EventArgs e)
+        private void materialButtonAtendimento_Click(object sender, EventArgs e)
         {
             panelButtons.Visible = false;
-            _navigationManager.NavigateTo(UserControlEnum.UcHistoricoConsultas, panelHistorico);
+            _navigationManager.NavigateTo(UserControlEnum.UcAtendimentoPaciente, panelAcolhimento);
         }
     }
 }

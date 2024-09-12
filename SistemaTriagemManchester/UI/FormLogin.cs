@@ -45,7 +45,9 @@ namespace SistemaTriagemManchester.Apresentacao.UI
         private bool ValidateUser(string username, string password)
         {
             // Coloque aqui a lógica de validação
-            return username == "admin" && password == "senha";
+            return username == "admin" && password == "admin";
+
+
         }
     }
 }

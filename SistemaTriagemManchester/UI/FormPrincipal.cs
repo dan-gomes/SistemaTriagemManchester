@@ -48,7 +48,7 @@ namespace SistemaTriagemManchester
             else if (e.TabPage.Name == tabPageAcolhimento.Name)
             {
                 tabPageAcolhimento.Controls.Clear();
-                tabPageAcolhimento.Controls.Add(_userControlManage.GetUserControl(UserControlEnum.UcTriagemPaciente));
+                tabPageAcolhimento.Controls.Add(_userControlManage.GetUserControl(UserControlEnum.UcAcolhimento));
             }
             else if (e.TabPage.Name == tabPageDashboard.Name)
             {

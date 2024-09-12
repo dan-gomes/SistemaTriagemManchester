@@ -23,6 +23,7 @@
         UcHistoricoTriagens,
         UcRelatorio,
         UcTriagemPaciente,
-        UcConfiguracao
+        UcConfiguracao,
+        UcAcolhimento
     }
 }

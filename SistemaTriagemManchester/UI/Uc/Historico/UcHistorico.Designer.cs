@@ -28,90 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            materialButton3 = new MaterialSkin.Controls.MaterialButton();
+            BtnConsultas = new MaterialSkin.Controls.MaterialButton();
+            BtnTriagens = new MaterialSkin.Controls.MaterialButton();
+            BtnExames = new MaterialSkin.Controls.MaterialButton();
+            panelButtons = new Panel();
+            panelHistorico = new Panel();
+            panelButtons.SuspendLayout();
             SuspendLayout();
             // 
-            // materialButton1
+            // BtnConsultas
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(281, 265);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(200, 100);
-            materialButton1.TabIndex = 0;
-            materialButton1.TabStop = false;
-            materialButton1.Text = "CONSULTAS";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            BtnConsultas.AutoSize = false;
+            BtnConsultas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnConsultas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            BtnConsultas.Depth = 0;
+            BtnConsultas.HighEmphasis = true;
+            BtnConsultas.Icon = null;
+            BtnConsultas.Location = new Point(4, 6);
+            BtnConsultas.Margin = new Padding(4, 6, 4, 6);
+            BtnConsultas.MouseState = MaterialSkin.MouseState.HOVER;
+            BtnConsultas.Name = "BtnConsultas";
+            BtnConsultas.NoAccentTextColor = Color.Empty;
+            BtnConsultas.Size = new Size(200, 100);
+            BtnConsultas.TabIndex = 0;
+            BtnConsultas.TabStop = false;
+            BtnConsultas.Text = "CONSULTAS";
+            BtnConsultas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            BtnConsultas.UseAccentColor = false;
+            BtnConsultas.UseVisualStyleBackColor = true;
+            BtnConsultas.Click += BtnConsultas_Click;
             // 
-            // materialButton2
+            // BtnTriagens
             // 
-            materialButton2.AutoSize = false;
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.Location = new Point(746, 265);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(200, 100);
-            materialButton2.TabIndex = 1;
-            materialButton2.TabStop = false;
-            materialButton2.Text = "TRIAGENS";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            BtnTriagens.AutoSize = false;
+            BtnTriagens.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnTriagens.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            BtnTriagens.Depth = 0;
+            BtnTriagens.HighEmphasis = true;
+            BtnTriagens.Icon = null;
+            BtnTriagens.Location = new Point(454, 6);
+            BtnTriagens.Margin = new Padding(4, 6, 4, 6);
+            BtnTriagens.MouseState = MaterialSkin.MouseState.HOVER;
+            BtnTriagens.Name = "BtnTriagens";
+            BtnTriagens.NoAccentTextColor = Color.Empty;
+            BtnTriagens.Size = new Size(200, 100);
+            BtnTriagens.TabIndex = 1;
+            BtnTriagens.TabStop = false;
+            BtnTriagens.Text = "TRIAGENS";
+            BtnTriagens.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            BtnTriagens.UseAccentColor = false;
+            BtnTriagens.UseVisualStyleBackColor = true;
+            BtnTriagens.Click += BtnTriagens_Click;
             // 
-            // materialButton3
+            // BtnExames
             // 
-            materialButton3.AutoSize = false;
-            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton3.Depth = 0;
-            materialButton3.HighEmphasis = true;
-            materialButton3.Icon = null;
-            materialButton3.Location = new Point(513, 265);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
-            materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton3.Name = "materialButton3";
-            materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(200, 100);
-            materialButton3.TabIndex = 2;
-            materialButton3.TabStop = false;
-            materialButton3.Text = "EXAMES";
-            materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton3.UseAccentColor = false;
-            materialButton3.UseVisualStyleBackColor = true;
+            BtnExames.AutoSize = false;
+            BtnExames.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnExames.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            BtnExames.Depth = 0;
+            BtnExames.HighEmphasis = true;
+            BtnExames.Icon = null;
+            BtnExames.Location = new Point(229, 6);
+            BtnExames.Margin = new Padding(4, 6, 4, 6);
+            BtnExames.MouseState = MaterialSkin.MouseState.HOVER;
+            BtnExames.Name = "BtnExames";
+            BtnExames.NoAccentTextColor = Color.Empty;
+            BtnExames.Size = new Size(200, 100);
+            BtnExames.TabIndex = 2;
+            BtnExames.TabStop = false;
+            BtnExames.Text = "EXAMES";
+            BtnExames.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            BtnExames.UseAccentColor = false;
+            BtnExames.UseVisualStyleBackColor = true;
+            BtnExames.Click += BtnExames_Click;
+            // 
+            // panelButtons
+            // 
+            panelButtons.Controls.Add(BtnExames);
+            panelButtons.Controls.Add(BtnConsultas);
+            panelButtons.Controls.Add(BtnTriagens);
+            panelButtons.Location = new Point(236, 238);
+            panelButtons.Name = "panelButtons";
+            panelButtons.Size = new Size(661, 114);
+            panelButtons.TabIndex = 3;
+            // 
+            // panelHistorico
+            // 
+            panelHistorico.Location = new Point(3, 3);
+            panelHistorico.Name = "panelHistorico";
+            panelHistorico.Size = new Size(1292, 698);
+            panelHistorico.TabIndex = 4;
             // 
             // UcHistorico
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(materialButton3);
-            Controls.Add(materialButton2);
-            Controls.Add(materialButton1);
+            Controls.Add(panelButtons);
+            Controls.Add(panelHistorico);
             Name = "UcHistorico";
             Size = new Size(1298, 704);
+            panelButtons.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
+        private MaterialSkin.Controls.MaterialButton BtnConsultas;
+        private MaterialSkin.Controls.MaterialButton BtnTriagens;
+        private MaterialSkin.Controls.MaterialButton BtnExames;
+        private Panel panelButtons;
+        private Panel panelHistorico;
     }
 }
